@@ -23,41 +23,38 @@
         },
         "content": {
           "type": "array",
-          "description": "List of values captured (see below)"
+          "description": "List of values captured (see below)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Name of the value"
+              },
+              "type": {
+                "type": "string",
+                "description": "Data type of the value"
+              },
+              "offset": {
+                "type": "number",
+                "description": "Offset of the value (optional); default: 0"
+              },
+              "scale": {
+                "type": "number",
+                "description": "Scale factor of the value (optional); default: 1.0"
+              },
+              "unit": {
+                "type": "string",
+                "description": "Physical unit of the value (optional); default: no units"
+              }
+            },
+            "required": ["value", "type"]
+          }
         }
       },
       "required": ["name", "frequency", "content"]
-    },
-    "content": {
-      "type": "array",
-      "description": "List of values captured (in the order of the data file)",
-      "items": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "Name of the value"
-          },
-          "type": {
-            "type": "string",
-            "description": "Data type of the value"
-          },
-          "offset": {
-            "type": "number",
-            "description": "Offset of the value (optional); default: 0"
-          },
-          "scale": {
-            "type": "number",
-            "description": "Scale factor of the value (optional); default: 1.0"
-          },
-          "unit": {
-            "type": "string",
-            "description": "Physical unit of the value (optional); default: no units"
-          }
-        },
-        "required": ["value", "type"]
-      }
     }
   },
-  "required": ["sds", "content"]
+  "required": ["sds"]
 }
+             
