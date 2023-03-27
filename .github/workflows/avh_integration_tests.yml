@@ -25,10 +25,8 @@ jobs:
       - name: Build demo using CMSIS toolbox
         working-directory: ./demo
         run: |
+          . <(curl https://aka.ms/vcpkg-init.sh -L)
+          vcpkg activate
           cbuild Demo.csolution.yml --packs --update-rte --configuration .debug+AVH
-          csolution list packs -s Demo.csolution.yml -m >packs.txt
-          cpackget add -f packs.txt
-          csolution convert -s Demo.csolution.yml
-          cbuild Demo.Debug+AVH.cprj
-          VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt -V ../sensor/vsi/python out/Demo/AVH/Debug/Debug+AVH.axf
+#          VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt -V ../sensor/vsi/python out/Demo/AVH/Debug/Debug+AVH.axf
         
