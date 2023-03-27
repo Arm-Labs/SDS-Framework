@@ -1,21 +1,26 @@
 
 name: SDS integration test on Arm Virtual Hardware
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+env:
+  ARMLMD_LICENSE_FILE: /opt/data.dat
+  ARM_TOOL_VARIANT: ult
+  AC6_TOOLCHAIN_6_18_0: /opt/armcompiler/bin
+  LD_LIBRARY_PATH: /opt/VHT
+  AVH_PATH: /opt/VHT
 
 jobs:
-  ci_build_and_test_loopback:
-  
+  build:
+    name: Build and Run
     runs-on: AVH-Runner
-  
-    env:
-      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/opt/armcompiler/bin:/opt/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin:/opt/VHT-1.1.2
-      ARMLMD_LICENSE_FILE: /opt/data.dat
-      ARM_TOOL_VARIANT: ult
-      LD_LIBRARY_PATH: /opt/VHT-1.1.2
-    
+
     steps:
-      - name: Checkout repo
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
     
  #     - name: Build demo using CMSIS toolbox
  #     - working-directory: ./demo
