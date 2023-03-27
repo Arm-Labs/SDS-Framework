@@ -26,5 +26,3 @@ jobs:
           cbuild Demo.Debug+AVH.cprj
           VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt -V ../sensor/vsi/python out/Demo/AVH/Debug/Debug+AVH.axf
         
-        
-     
