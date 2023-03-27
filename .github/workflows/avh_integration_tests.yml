@@ -23,8 +23,8 @@ jobs:
         uses: actions/checkout@v3
     
       - name: Build demo using CMSIS toolbox
-      - working-directory: ./demo
-      - run: |
+        working-directory: ./demo
+        run: |
           csolution list packs -s Demo.csolution.yml -m >packs.txt
           cpackget add -f packs.txt
           csolution convert -s Demo.csolution.yml
