@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   ci_build_and_test_loopback:
   
-    runs-on: Arm-Virtual-Hardware
+    runs-on: AVH-Runner
   
     env:
       PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/opt/armcompiler/bin:/opt/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin:/opt/VHT-1.1.2
