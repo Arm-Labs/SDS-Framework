@@ -25,6 +25,7 @@ jobs:
       - name: Build demo using CMSIS toolbox
         working-directory: ./demo
         run: |
+          cbuild Demo.csolution.yml --packs --update-rte --configuration .debug+AVH
           csolution list packs -s Demo.csolution.yml -m >packs.txt
           cpackget add -f packs.txt
           csolution convert -s Demo.csolution.yml
