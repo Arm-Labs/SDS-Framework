@@ -22,12 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
     
- #     - name: Build demo using CMSIS toolbox
- #     - working-directory: ./demo
- #     - run: |
- #         csolution list packs -s Demo.csolution.yml -m >packs.txt
- #         cpackget add -f packs.txt
- #         csolution convert -s Demo.csolution.yml
- #         cbuild Demo.Debug+AVH.cprj
- #         VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt -V ../sensor/vsi/python out/Demo/AVH/Debug/Debug+AVH.axf
+      - name: Build demo using CMSIS toolbox
+      - working-directory: ./demo
+      - run: |
+          csolution list packs -s Demo.csolution.yml -m >packs.txt
+          cpackget add -f packs.txt
+          csolution convert -s Demo.csolution.yml
+          cbuild Demo.Debug+AVH.cprj
+          VHT_MPS3_Corstone_SSE-300 -f Board/AVH_MPS3_Corstone-300/fvp_config.txt -V ../sensor/vsi/python out/Demo/AVH/Debug/Debug+AVH.axf
         
